@@ -2,19 +2,74 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision Maker</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
+  <%# FONTS USED %>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <h1>Have fun! 🥔</h1>
+  <nav class="nav-class">
+    <ul>
+      <li><a href="#">Create</a></li>
+      <li><a href="#">Results</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+  </nav>
+  <header>
+    <img src="/public/styles/images/header-img.jpg" alt="">
+    <p class=" header-text">
+      Create your pool and share with your friends!
+    </p>
+  </header>
+  <main class="main-class-container">
+
+    <div class="poll-results-container">
+
+      <h1>Click here to create your poll and share with your friends!</h1>
+      <form action="#" class="create-poll-form-class">
+        <input type="email" placeholder="Your name">
+        <input type="email" placeholder="Your e-mail here!">
+        <button class="create-poll-button-class">CREATE</button>
+      </form>
+
+      <h1>See the results of your poll!</h1>
+      <form action="#" class="see-results-button-class">
+
+        <input type="text" placeholder="your code!">
+        <button> RESULTS</button>
+      </form>
+
+    </div>
+
+    </main>
+
+    <footer class="footer-class">
+
+        <nav>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </nav>
+
+
+    </footer>
+
 </body>
 
 </html>
