@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/form-styles.scss" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <%# FONTS USED %>
@@ -24,33 +24,30 @@
 <body>
   <nav class="nav-class">
     <ul>
-      <li><a href="/views/form.ejs">Create</a></li>
+      <li><a href="#">Create</a></li>
       <li><a href="#">Results</a></li>
       <li><a href="#">About Us</a></li>
     </ul>
   </nav>
-  <header>
-    <img src="/public/images/header-img.jpg" alt="">
-    <p class=" header-text">
-      Create your pool and share with your friends!
-    </p>
-  </header>
+
+
   <main class="main-class-container">
 
     <div class="poll-results-container">
 
-      <h1>Click here to create your poll and share with your friends!</h1>
+      <h1>What kind of Poll you want to make?</h1>
       <form action="#" class="create-poll-form-class">
-        <input type="text" placeholder="Your name">
-        <input type="email" placeholder="Your e-mail here!">
+      <input type="text" placeholder="Movies, Restaurants, Food...">
+      <input type="text" placeholder="First Option"> First Option
+
+
+
+
+
+
         <button class="create-poll-button-class">CREATE</button>
-      </form>
 
-      <h1>See the results of your poll!</h1>
-      <form action="#" class="see-results-button-class">
 
-        <input type="text" placeholder="your code!">
-        <button> RESULTS</button>
       </form>
 
     </div>

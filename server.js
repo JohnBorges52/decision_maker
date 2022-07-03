@@ -52,6 +52,12 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+///////// MADE THIS JUST TO SEE THE RESULTS OF LAYOUT ON THE PAGE ///////////
+app.get("/form", (req, res) => {////////////////////////////////////////////
+  res.render ("form");//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
