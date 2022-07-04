@@ -23,6 +23,7 @@ module.exports = (db) => {
     let title = req.body.title;
     let poll_key = {poll_key:req.params.key};
     let options = req.body.op;
+    let descriptions = req.body.description;
     db.query(`SELECT * FROM users
     WHERE users.poll_key = $1;`,[poll_key.poll_key])
     .then(data => {
@@ -36,9 +37,9 @@ module.exports = (db) => {
         console.log(result.rows);
         options.forEach((option, index) => {
           return db
-          .query(`INSERT INTO options(user_id,title_id,choice)
-          VALUES($1,$2,$3)
-          RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,option])
+          .query(`INSERT INTO options(user_id,title_id,choice,description)
+          VALUES($1,$2,$3,$4)
+          RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,option,descriptions[index]])
 
         });
 

@@ -45,16 +45,17 @@
       <div class="div-form-class">
 
         <h1>What poll you want to create?</h1>
-        <form action="/api/polls/<%= poll_key %>" class="poll-options" method=“POST”>
+        <form action="/api/polls/<%= poll_key %>" method="POST"class="poll-options">
           <div class="title-div">
+            <input type="text" name="title" placeholder="Title of your poll" class="title-class">
 
-            <textarea name="title" class="title-class" id="description" cols="20" rows="2" placeholder="Title of your poll"></textarea>
+            <!-- <textarea name="title" class="title-class" id="description" cols="20" rows="2" placeholder="Title of your poll"></textarea> -->
           </div>
 
           <div class="form-div"  id="add-option-div">
 
             <input type="text" name="op" placeholder="Option #1" class="option">
-            <!-- <textarea name="description" class="description-class" id="description" cols="30" rows="2" placeholder="Description of your option"></textarea> -->
+            <textarea name="description" class="description-class" id="description" cols="30" rows="2" placeholder="Description of your option"></textarea>
           </div>
           <div class="button-div">
             <button class="create-poll-button-class" id="add-option">Add option</button>
