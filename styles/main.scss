@@ -21,9 +21,15 @@ body {
 
       a{
         font-size: 1.1em;
+
         text-decoration: none;
         color: rgb(255, 255, 255);
         text-transform: uppercase;
+      }
+      a:hover {
+        font-weight: 800;
+        text-decoration: underline;
+
       }
     }
   }
@@ -112,14 +118,22 @@ header {
 
         button{
           margin-left: 10px;
-        border: none;
-        border-radius: 10px;
-        background-color: rgb(192, 37, 37);
-
-        height: 35px;
-        color: white;
+          border: none;
+          border-radius: 10px;
+          background-color: rgb(192, 37, 37);
+          cursor: pointer;
+          height: 35px;
+          color: white;
       }
+        button:hover{
+          font-weight: 600;
+        }
     }
+  }
+  .poll-results-container:hover{
+    box-shadow: 2px 2px rgb(240, 153, 153);
+    background-color: rgb(252, 183, 183);
+
   }
 }
 
@@ -145,6 +159,10 @@ header {
         a{
           text-decoration: none;
           color: white;
+        }
+        a:hover{
+          font-weight: 800;
+          text-decoration: underline;
         }
       }
     }
