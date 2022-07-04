@@ -9,8 +9,13 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/form-styles.scss" type="text/css" />
+  <link rel="stylesheet" href="/styles/form-styles.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+
+  <%# EXTERNAL LINKS %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
   <%# FONTS USED %>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,31 +29,27 @@
 <body>
   <nav class="nav-class">
     <ul>
-      <li><a href="#">Create</a></li>
+      <li><a href="/form">Create</a></li>
       <li><a href="#">Results</a></li>
       <li><a href="#">About Us</a></li>
     </ul>
   </nav>
 
-
   <main class="main-class-container">
 
     <div class="poll-results-container">
 
-      <h1>What kind of Poll you want to make?</h1>
-      <form action="#" class="create-poll-form-class">
-      <input type="text" placeholder="Movies, Restaurants, Food...">
-      <input type="text" placeholder="First Option"> First Option
+      <div class="div-form-class">
+
+        <h1>Click here to create your poll and share with your friends!</h1>
+        <form action="#" class="create-poll-form-class">
+          <input type="text" placeholder="Your name">
+          <input type="email" placeholder="Your e-mail here!">
+          <button class="create-poll-button-class">CREATE</button>
+        </form>
+      </div>
 
 
-
-
-
-
-        <button class="create-poll-button-class">CREATE</button>
-
-
-      </form>
 
     </div>
 
@@ -62,8 +63,11 @@
             <li><a href="#">Facebook</a></li>
             <li><a href="#">Instagram</a></li>
           </ul>
+          <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook" ></i></a>
+          </div>
         </nav>
-
 
     </footer>
 
