@@ -40,15 +40,20 @@
   </nav>
 
   <main class="main-class-container">
+    <form action="">
 
-    <div class="options-container-test">
+      <div class="options-container-test">
 
-      <div class="options-title"><%= title %></div>
-      <div class="options-test draggable" draggable="true"><%= questions[0] %></div>
-      <div class="options-test draggable" draggable="true"><%= questions[1] %></div>
-      <div class="options-test draggable" draggable="true"><%= questions[2] %></div>
-      <div class="options-test draggable" draggable="true"><%= questions[3] %></div>
+        <div class="options-title"><%= title %></div>
+        <% for (let option of questions) { %>
+          <div class="options-test draggable" draggable="true"><%= option %></div>
+          <%  } %>
 
+          <div>
+            <button class="sub-btn-rank" type="submit">Submit</button>
+
+          </div>
+        </form>
     </div>
 
 
