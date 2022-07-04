@@ -35,13 +35,27 @@ module.exports = (db) => {
                RETURNING *;`, [title,poll_key.user_id])
       .then((result) => {
         console.log(result.rows);
-        options.forEach((option, index) => {
+        console.log(options);
+        if (!Array.isArray(options)) {
           return db
           .query(`INSERT INTO options(user_id,title_id,choice,description)
           VALUES($1,$2,$3,$4)
-          RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,option,descriptions[index]])
+          RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,options,descriptions])
+          .then(()=>{
+            res.render(`thanks`);
 
-        });
+          });
+
+        }else{
+          options.forEach((option, index) => {
+            return db
+            .query(`INSERT INTO options(user_id,title_id,choice,description)
+            VALUES($1,$2,$3,$4)
+            RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,option,descriptions[index]])
+
+          });
+        }
+
 
 
 
