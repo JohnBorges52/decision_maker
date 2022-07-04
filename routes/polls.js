@@ -19,6 +19,7 @@ module.exports = (db) => {
   });
 
   router.post("/:key", (req, res) => {
+    console.log(req.body);
     let title = req.body.title;
     let poll_key = {poll_key:req.params.key};
     let options = req.body.op;

@@ -24,6 +24,7 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
+    console.log(req.body.name);
     let username = req.body.name;
     let email = req.body.email;
     const key = generateRandomString();
