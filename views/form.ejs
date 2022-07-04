@@ -15,6 +15,7 @@
 
   <%# EXTERNAL LINKS %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 
   <%# FONTS USED %>
@@ -24,6 +25,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/jquery-styles.js"></script>
 </head>
 
 <body>
@@ -41,11 +43,22 @@
 
       <div class="div-form-class">
 
-        <h1>Click here to create your poll and share with your friends!</h1>
-        <form action="#" class="create-poll-form-class">
-          <input type="text" placeholder="Your name">
-          <input type="email" placeholder="Your e-mail here!">
-          <button class="create-poll-button-class">CREATE</button>
+        <h1>What poll you want to create?</h1>
+        <form action="#" class="poll-options">
+          <div class="title-div">
+
+            <textarea name="description" class="title-class" id="description" cols="20" rows="2" placeholder="Title of your poll"></textarea>
+          </div>
+
+          <div class="form-div"  id="add-option-div">
+
+            <input type="text" placeholder="Option #1" class="option">
+            <textarea name="description" class="description-class" id="description" cols="30" rows="2" placeholder="Description of your option"></textarea>
+          </div>
+          <div class="button-div">
+            <button class="create-poll-button-class" id="add-option">Add option</button>
+            <button class="send-poll-button-class" id="send-poll-id">CREATE</button>
+          </div>
         </form>
       </div>
 
@@ -53,7 +66,7 @@
 
     </div>
 
-    </main>
+  </main>
 
     <footer class="footer-class">
 
