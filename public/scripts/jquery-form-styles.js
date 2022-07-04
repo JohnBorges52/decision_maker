@@ -7,12 +7,7 @@ $(document).ready(function () {
     const $option = createAnotherOption()
     numberOfOptions += 1;
     $(`#add-option-div`).append($option);
-
-
   })
-
-
-
 
   const createAnotherOption = function() {
 
@@ -24,10 +19,5 @@ $(document).ready(function () {
 
     return $options
   }
-
-
-
-
-
 
 })

@@ -1,4 +1,6 @@
+
 $(document).ready(function () {
+
 
 const $draggables = document.querySelectorAll('.draggable')
 const $containers = document.querySelectorAll('.options-container-test')
@@ -42,6 +44,20 @@ function getDragAfterElement(container,y) {
     }, {offset: Number.NEGATIVE_INFINITY}).element
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })
 
