@@ -7,13 +7,17 @@ $(document).ready(function () {
     const $option = createAnotherOption()
     numberOfOptions += 1;
     $(`#add-option-div`).append($option);
+
+
   })
+
+
+
 
   const createAnotherOption = function() {
 
     const $options = $(`
-
-    <input type="text" placeholder="Option # ${numberOfOptions}" class="option">
+    <input type="text" name = "op" placeholder="Option # ${numberOfOptions}" class="option">
     <textarea name="description" class="description-class" id="description" cols="30" rows="2" placeholder="Description of your option"></textarea>
    `)
 
