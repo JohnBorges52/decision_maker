@@ -36,12 +36,14 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+const pollsRoutes = require("./routes/polls");
+const voteRoutes = require("./routes/vote");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/polls", pollsRoutes(db));
+app.use("/api/vote", voteRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -51,6 +53,17 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+///////// MADE THIS JUST TO SEE THE RESULTS OF LAYOUT ON THE PAGE ///////////
+app.get("/form", (req, res) => {////////////////////////////////////////////
+  res.render ("form");//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+})
+///////// MADE THIS JUST TO SEE THE RESULTS OF LAYOUT ON THE PAGE ///////////
+app.get("/vote", (req, res) => {////////////////////////////////////////////
+  res.render ("vote");//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+})
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
