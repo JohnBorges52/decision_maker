@@ -42,27 +42,22 @@ module.exports = (db) => {
   router.post("/:key", (req, res) => {
     let poll_key = { poll_key: req.body.poll_key };
     const choices = req.body.optionOrders;
-    console.log(choices[0])
-    const choice = choices[0];
-      for (item of choices) {
+      choices.forEach(item => {
         db.query(`SELECT id, title_id FROM options
                   WHERE options.choice LIKE $1;`, [item])
         .then(data => {
           console.log(data.rows[0])
           const optionId = data.rows[0].id;
+          console.log(optionId);
           const titleID = data.rows[0].title_id;
+          console.log(titleID);
           const score = choices.indexOf(item);
-          db.querry(`INSERT INTO choices
+          console.log(score);
+          db.query(`INSERT INTO choices
             (option_id, title_id, score) VALUES ($1, $2, $3);`, [optionId, titleID, score])
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-    }
+      })
   });
-
   return router;
 };
 
