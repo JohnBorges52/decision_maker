@@ -11,7 +11,7 @@ const router = express.Router();
 module.exports = (db) => {
   router.get("/:key", (req, res) => {
     let poll_key = { poll_key: req.params.key };
-    db.query(`SELECT titles.title, options.choice
+    db.query(`SELECT titles.title, options.choice,options.description
     FROM options
     JOIN users ON users.id = options.user_id
     JOIN titles ON users.id = titles.user_id
@@ -19,12 +19,14 @@ module.exports = (db) => {
     .then(data => {
         const title = data.rows[0].title;
         let question = [];
+        let description=[];
         for (const i of data.rows) {
           question.push(i.choice);
+          description.push(i.description);
         }
         console.log(title);
         console.log(question);
-        const info = {title:title, questions: question};
+        const info = {title:title, questions: question, description:description};
         console.log(info);
         //res.json({ info });
         res.render("vote",info);
