@@ -10,18 +10,11 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM widgets`;
-    console.log(query);
-    db.query(query)
-      .then(data => {
-        const widgets = data.rows;
-        res.json({ widgets });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+    let poll_key = { poll_key: req.params.key };
+    const voteUrl = `api/vote/${poll_key}`;
+    const resultUrl = `api/result/${poll_key}`;
+    const templateVariables = {voteUrl, resultUrl}
+    res.render("submissionlanding", templateVariables)
   });
   return router;
 };

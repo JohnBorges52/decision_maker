@@ -56,11 +56,7 @@ module.exports = (db) => {
           });
         }
 
-
-
-
-
-        res.render(`thanks`);
+        res.render(`submissionLanding`, templateVariables);
       })
 
       .catch(err => {
