@@ -7,10 +7,13 @@
 
 const express = require('express');
 const router = express.Router();
+var nodemailer = require('nodemailer');
+
 
 module.exports = (db) => {
   router.get("/:key", (req, res) => {
     let poll_key = { poll_key: req.params.key };
+    console.log(poll_key);
     db.query(`SELECT titles.title, options.choice,options.description
     FROM options
     JOIN users ON users.id = options.user_id
@@ -26,75 +29,60 @@ module.exports = (db) => {
         }
         console.log(title);
         console.log(question);
-        const info = {title:title, questions: question, description:description};
+        const info = {title:title, questions: question, description:description, poll_key:poll_key.poll_key};
         console.log(info);
         //res.json({ info });
         res.render("vote",info);
     })
   });
 
-  // router.post("/:key", (req, res) => {
-  //   console.log(req.body);
-  //   let title = req.body.title;
-  //   let poll_key = {poll_key:req.params.key};
-  //   let options = req.body.op;
-  //   let descriptions = req.body.description;
-  //   db.query(`SELECT * FROM users
-  //   WHERE users.poll_key = $1;`,[poll_key.poll_key])
-  //   .then(data => {
-  //     const id = data.rows[0].id;
-  //     poll_key={...poll_key,user_id:parseInt(id)};
-  //     return db
-  //     .query(`INSERT INTO titles(title,user_id)
-  //              VALUES($1,$2)
-  //              RETURNING *;`, [title,poll_key.user_id])
-  //     .then((result) => {
-  //       console.log(result.rows);
-  //       console.log(options);
-  //       if (!Array.isArray(options)) {
-  //         return db
-  //         .query(`INSERT INTO options(user_id,title_id,choice,description)
-  //         VALUES($1,$2,$3,$4)
-  //         RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,options,descriptions])
-  //         .then(()=>{
-  //           res.render(`thanks`);
+  router.post("/:key", (req, res) => {
+    let poll_key = {poll_key:req.params.key};
+    db.query(`SELECT users.email,titles.title
+    FROM users
+    JOIN titles ON users.id = titles.user_id
+    WHERE users.poll_key = $1;`,[poll_key.poll_key])
+    .then(data => {
+      const email = data.rows[0].email;
+      const title = data.rows[0].title;
+      console.log(email);
 
-  //         });
+      var transport = nodemailer.createTransport({
+        host: 'smtp.zoho.com',
+        port: 465,
+        secure: true, //ssl
+        auth: {
 
-  //       }else{
-  //         options.forEach((option, index) => {
-  //           return db
-  //           .query(`INSERT INTO options(user_id,title_id,choice,description)
-  //           VALUES($1,$2,$3,$4)
-  //           RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,option,descriptions[index]])
+            user:process.env.EMAIL,
+            pass:process.env.PASSWORD
+        }
+    });
 
-  //         });
-  //       }
+    var mailOptions = {
+        from: 'decisionmakerapp007@zohomail.com',
+        to: email,
+        subject: `your friends just voted on your poll`,
+        text: `
+        Hello!
+        your friend has just voted on your poll: ${title}. Click below to see the updated results.
+        Admin Link: http://localhost:8080/api/result/${poll_key.poll_key}
+        Share the link below to get more responses.
+        Voting Link: http://localhost:8080/api/vote/${poll_key.poll_key}
+        Thank you!`
+    };
 
-
-
-
-
-  //       res.render(`thanks`);
-  //     })
-
-  //     .catch(err => {
-  //       res
-  //         .status(500)
-  //         .json({ error: err.message });
-  //     });
-  //   })
+    transport.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+    })
 
 
-  // });
-
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM options`)
-      .then(data => {
-        const i = data.rows;
-        res.json({ i });
-      })
   });
+
 
   return router;
 };
