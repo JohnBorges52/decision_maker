@@ -29,7 +29,7 @@ module.exports = (db) => {
         }
         console.log(title);
         console.log(question);
-        const info = {title:title, questions: question, description:description, poll_key: req.params.key };
+        const info = {title:title, questions: question, description:description, poll_key:poll_key.poll_key};
         console.log(info);
         //res.json({ info });
         res.render("vote",info);
@@ -37,16 +37,14 @@ module.exports = (db) => {
   });
 
   router.post("/:key", (req, res) => {
-    console.log(req.body);
-    let title = req.body.title;
     let poll_key = {poll_key:req.params.key};
-    let options = req.body.op;
-    let descriptions = req.body.description;
-
-    db.query(`SELECT email FROM users
+    db.query(`SELECT users.email,titles.title
+    FROM users
+    JOIN titles ON users.id = titles.user_id
     WHERE users.poll_key = $1;`,[poll_key.poll_key])
     .then(data => {
       const email = data.rows[0].email;
+      const title = data.rows[0].title;
       console.log(email);
 
       var transport = nodemailer.createTransport({
@@ -80,24 +78,11 @@ module.exports = (db) => {
         console.log('Email sent: ' + info.response);
       }
     });
-
-
-
-
-
-
     })
 
 
   });
 
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM options`)
-      .then(data => {
-        const i = data.rows;
-        res.json({ i });
-      })
-  });
 
   return router;
 };

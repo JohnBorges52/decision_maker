@@ -14,7 +14,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users
     WHERE users.poll_key = $1;`,[poll_key.poll_key])
       .then(data => {
-        res.render("test2",poll_key);
+        res.render("form",poll_key);
       })
   });
 
