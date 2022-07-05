@@ -40,13 +40,13 @@
   </nav>
 
   <main class="main-class-container">
-    <form action="">
+    <form action="/api/vote/<%= poll_key %>" method="POST">
 
       <div class="options-container-test">
 
-        <div class="options-title"><%= title %></div>
+        <div name="title" class="options-title"><%= title %></div>
         <% for (let option of questions) { %>
-          <div class="options-test draggable" draggable="true"><%= option %></div>
+          <div name="op" class="options-test draggable" draggable="true"><%= option %></div>
           <%  } %>
 
           <div>
