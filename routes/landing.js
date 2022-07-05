@@ -5,16 +5,16 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
+// const express = require('express');
+// const router  = express.Router();
 
-module.exports = (db) => {
-  router.get("/", (req, res) => {
-    let poll_key = { poll_key: req.params.key };
-    const voteUrl = `api/vote/${poll_key}`;
-    const resultUrl = `api/result/${poll_key}`;
-    const templateVariables = {voteUrl, resultUrl}
-    res.render("submissionlanding", templateVariables)
-  });
-  return router;
-};
+// module.exports = (db) => {
+//   router.get("/", (req, res) => {
+//     let poll_key = { poll_key: req.params.key };
+//     const voteUrl = `api/vote/${poll_key}`;
+//     const resultUrl = `api/result/${poll_key}`;
+//     const templateVariables = {voteUrl, resultUrl}
+//     res.render("submissionlanding", templateVariables)
+//   });
+//   return router;
+// };

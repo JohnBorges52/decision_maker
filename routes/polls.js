@@ -38,7 +38,7 @@ module.exports = (db) => {
         console.log(options);
         if (!Array.isArray(options)) {
           return db
-          .query(`INSERT INTO options(user_id,title_id,choice,description)
+          .query(`INSERT INTO options(user_id,title_id,options,description)
           VALUES($1,$2,$3,$4)
           RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,options,descriptions])
           .then(()=>{
@@ -56,7 +56,7 @@ module.exports = (db) => {
           });
         }
 
-        res.render(`submissionLanding`, templateVariables);
+        // res.render(`submissionLanding`, templateVariables);
       })
 
       .catch(err => {

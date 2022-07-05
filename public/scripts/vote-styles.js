@@ -1,5 +1,17 @@
 $(document).ready(function () {
 
+$(".pollSubmission").submit(function(e) {
+  e.preventDefault();
+  const optionOrders = [];
+  $(this).find(".options-test").each(function(i,optionElement) {
+    console.log($(optionElement).data("option"));
+    optionOrders.push($(optionElement).data("option"));
+  })
+  const pageUrl = $(location).attr("href").split("/");
+  const poll_key = pageUrl[5];
+  $.ajax('/api/vote/:key', {method: 'POST', data: {optionOrders, poll_key}})
+})
+
   const $draggables = document.querySelectorAll('.draggable')
   const $containers = document.querySelectorAll('.options-container-test')
 

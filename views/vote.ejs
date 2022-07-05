@@ -40,13 +40,13 @@
   </nav>
 
   <main class="main-class-container">
-    <form action="">
+    <form class="pollSubmission">
 
       <div class="options-container-test">
 
         <div class="options-title"><%= title %></div>
         <% for (let option of questions) { %>
-          <div class="options-test draggable" draggable="true"><%= option %></div>
+          <div data-option="<%= option %>" class="options-test draggable" draggable="true"><%= option %></div>
           <%  } %>
 
           <div>

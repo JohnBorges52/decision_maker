@@ -31,67 +31,36 @@ module.exports = (db) => {
     })
   });
 
-  // router.post("/:key", (req, res) => {
-  //   console.log(req.body);
-  //   let title = req.body.title;
-  //   let poll_key = {poll_key:req.params.key};
-  //   let options = req.body.op;
-  //   let descriptions = req.body.description;
-  //   db.query(`SELECT * FROM users
-  //   WHERE users.poll_key = $1;`,[poll_key.poll_key])
-  //   .then(data => {
-  //     const id = data.rows[0].id;
-  //     poll_key={...poll_key,user_id:parseInt(id)};
-  //     return db
-  //     .query(`INSERT INTO titles(title,user_id)
-  //              VALUES($1,$2)
-  //              RETURNING *;`, [title,poll_key.user_id])
-  //     .then((result) => {
-  //       console.log(result.rows);
-  //       console.log(options);
-  //       if (!Array.isArray(options)) {
-  //         return db
-  //         .query(`INSERT INTO options(user_id,title_id,choice,description)
-  //         VALUES($1,$2,$3,$4)
-  //         RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,options,descriptions])
-  //         .then(()=>{
-  //           res.render(`thanks`);
-
-  //         });
-
-  //       }else{
-  //         options.forEach((option, index) => {
-  //           return db
-  //           .query(`INSERT INTO options(user_id,title_id,choice,description)
-  //           VALUES($1,$2,$3,$4)
-  //           RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,option,descriptions[index]])
-
-  //         });
-  //       }
-
-
-
-
-
-  //       res.render(`thanks`);
-  //     })
-
-  //     .catch(err => {
-  //       res
-  //         .status(500)
-  //         .json({ error: err.message });
-  //     });
-  //   })
-
-
-  // });
-
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM options`)
       .then(data => {
         const i = data.rows;
         res.json({ i });
       })
+  });
+
+  router.post("/:key", (req, res) => {
+    let poll_key = { poll_key: req.body.poll_key };
+    const choices = req.body.optionOrders;
+    console.log(choices[0])
+    const choice = choices[0];
+      for (item of choices) {
+        db.query(`SELECT id, title_id FROM options
+                  WHERE options.choice LIKE $1;`, [item])
+        .then(data => {
+          console.log(data.rows[0])
+          const optionId = data.rows[0].id;
+          const titleID = data.rows[0].title_id;
+          const score = choices.indexOf(item);
+          db.querry(`INSERT INTO choices
+            (option_id, title_id, score) VALUES ($1, $2, $3);`, [optionId, titleID, score])
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+    }
   });
 
   return router;

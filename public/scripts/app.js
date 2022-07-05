@@ -1,8 +1,6 @@
-const dbParams = require("../../lib/db")
+// const dbParams = require("../../lib/db")
 
-dbParams.query(`Select * from users`, (err,res)=> {
+// dbParams.query(`Select * from users`, (err,res)=> {
 
-  dbParams.end;
-
-
-})
+//   dbParams.end;
+// })
