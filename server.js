@@ -44,6 +44,7 @@ const voteRoutes = require("./routes/vote");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/polls", pollsRoutes(db));
 app.use("/api/vote", voteRoutes(db));
+app.use("/api/landing", voteRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
