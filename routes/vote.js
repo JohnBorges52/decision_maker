@@ -46,13 +46,9 @@ module.exports = (db) => {
         db.query(`SELECT id, title_id FROM options
                   WHERE options.choice LIKE $1;`, [item])
         .then(data => {
-          console.log(data.rows[0])
           const optionId = data.rows[0].id;
-          console.log(optionId);
           const titleID = data.rows[0].title_id;
-          console.log(titleID);
           const score = choices.indexOf(item);
-          console.log(score);
           db.query(`INSERT INTO choices
             (option_id, title_id, score) VALUES ($1, $2, $3);`, [optionId, titleID, score])
       })
