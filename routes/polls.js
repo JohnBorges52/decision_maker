@@ -42,33 +42,26 @@ module.exports = (db) => {
           VALUES($1,$2,$3,$4)
           RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,options,descriptions])
           .then(()=>{
-            res.render(`thanks`);
-
+            res.render(`index`);
           });
-
         }else{
           options.forEach((option, index) => {
             return db
             .query(`INSERT INTO options(user_id,title_id,choice,description)
             VALUES($1,$2,$3,$4)
             RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,option,descriptions[index]])
-
           });
         }
 
         // res.render(`submissionLanding`, templateVariables);
       })
-
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
     })
-
-
   });
-
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM options`)
       .then(data => {
@@ -76,7 +69,6 @@ module.exports = (db) => {
         res.json({i});
       })
   });
-
   return router;
 };
 

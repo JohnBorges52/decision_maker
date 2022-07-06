@@ -30,7 +30,6 @@ module.exports = (db) => {
         res.render("vote",info);
     })
   });
-
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM options`)
       .then(data => {
@@ -51,6 +50,11 @@ module.exports = (db) => {
           const score = choices.indexOf(item);
           db.query(`INSERT INTO choices
             (option_id, title_id, score) VALUES ($1, $2, $3);`, [optionId, titleID, score])
+            .catch(err => {
+              res
+                .status(500)
+                .json({ error: err.message });
+            });
       })
       })
   });

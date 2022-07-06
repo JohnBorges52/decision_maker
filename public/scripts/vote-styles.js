@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
 $(".pollSubmission").submit(function(e) {
   e.preventDefault();
   const optionOrders = [];
