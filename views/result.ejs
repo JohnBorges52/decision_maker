@@ -37,13 +37,16 @@
       <li><a href="#">About Us</a></li>
     </ul>
   </nav>
-
+//case: some choices ranked same[highest-medium-lowest]
   <main class="main-class-container">
-
-    <div class="poll-results-container">
-
-      <div class="div-form-class">
-      </div>
+    <h1>Poll topic: <%= pollTitle %></h>
+      <h5>created by: <%= pollCreator %></h5>
+      <p><%= numberOfVoters %> People have voted so far!</p>
+    <div>
+    <% for (let item of pollOptionScores) { %>
+      <h2><%= item.option %></h2>
+      <h3><%= item.totalScore %></h3>
+    <% } %>
     </div>
 
   </main>

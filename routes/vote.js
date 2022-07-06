@@ -39,6 +39,7 @@ module.exports = (db) => {
   });
 
   router.post("/:key", (req, res) => {
+    console.log(req.body);
     let poll_key = { poll_key: req.body.poll_key };
     const choices = req.body.optionOrders;
       choices.forEach(item => {
@@ -48,6 +49,9 @@ module.exports = (db) => {
           const optionId = data.rows[0].id;
           const titleID = data.rows[0].title_id;
           const score = choices.indexOf(item);
+          console.log(optionId);
+          console.log(titleID);
+          console.log(score);
           db.query(`INSERT INTO choices
             (option_id, title_id, score) VALUES ($1, $2, $3);`, [optionId, titleID, score])
             .catch(err => {
