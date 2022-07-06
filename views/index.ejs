@@ -7,11 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Decision Maker</title>
 
+  <%# INTERNAL CSS %>
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/nav-styles.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header-styles.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/footer-styles.css" type="text/css" />
 
   <%# EXTERNAL LINKS %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -31,8 +35,8 @@
 <body>
   <nav class="nav-class">
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="#name-id" id="nav-create-link">Create</a></li>
+      <li><a href="/api/users">Home</a></li>
+      <li><a href="#create-id">Create</a></li>
       <li><a href="#">Results</a></li>
       <li><a href="#">About Us</a></li>
     </ul>
@@ -40,7 +44,7 @@
   <header>
 
     <p class=" header-text">
-      Create your <span class="red-span"> Poll</span> and share with your friends!
+      Create your <a href="#create-id" class="red-link"><span class="red-span"> Poll</span></a> and share with your friends!
     </p>
   </header>
   <main class="main-class-container">
@@ -51,8 +55,8 @@
 
         <h1>Click here to create your poll and share with your friends!</h1>
         <form action="/api/users/" method="POST" class="create-poll-form-class">
-          <input type="text"  name=name placeholder="Your name" >
-          <input type="email" name=email placeholder="Your e-mail here!">
+          <input type="text"  name=name placeholder="Your name" id="create-id" required>
+          <input type="email" name=email placeholder="Your e-mail here!" required>
           <button class="create-poll-button-class" type=“submit”>CREATE</button>
         </form>
       </div>

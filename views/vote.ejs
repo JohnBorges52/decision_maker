@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Decision Maker</title>
 
+
+    <%# INTERNAL CSS %>
+
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/vote-styles.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav-styles.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/footer-styles.css" type="text/css" />
 
     <%# EXTERNAL LINKS %>
     <link
@@ -42,7 +47,7 @@
     <nav class="nav-class">
       <ul>
         <li><a href="/api/users">Home</a></li>
-        <li><a href="#name-id" id="nav-create-link">Create</a></li>
+        <li><a href="/api/users#create-id" id="nav-create-link">Create</a></li>
         <li><a href="#">Results</a></li>
         <li><a href="#">About Us</a></li>
       </ul>
@@ -59,10 +64,6 @@
               <div class="options-test draggable" draggable="true">
               <%= questions[i] %>
             </div>
-            <!-- <div class="description-fade show-description">
-              <%= description[i] %>
-            </div> -->
-
             <% } %>
           </div>
 
@@ -71,6 +72,7 @@
           </div>
         </div>
       </form>
+      <button class="test-btn" id="test-btn-id" > test</button>
       <% for (let i = 0; i < questions.length; i++) { %>
         <div class="description-fade show-description">
           <%= description[i] %>

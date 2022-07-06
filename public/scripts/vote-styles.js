@@ -53,10 +53,11 @@ $(document).ready(function () {
     let movies = [];
     movies.push(this);
     const outer = movies[0].outerHTML;
-
+    //let orderOfMovies = []
     let indexxO = $(this).index();
 
     for (let item in allMovies) {
+     // orderOfMovies.push(item)
       if (allMovies[item].outerHTML === outer) indexxO = item;
     }
 
@@ -66,6 +67,7 @@ $(document).ready(function () {
       allDescriptions[indexxO].classList.add("show-description");
     }
   });
+
 
   //// FUNCTIONALITY OF DRAGGIN CLOSING DESCRIPTION ////
 
