@@ -52,8 +52,7 @@ module.exports = (db) => {
             RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,option,descriptions[index]])
           });
         }
-
-        // res.render(`submissionLanding`, templateVariables);
+        res.render('complete', poll_key);
       })
       .catch(err => {
         res

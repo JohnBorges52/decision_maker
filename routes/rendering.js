@@ -61,3 +61,8 @@ module.exports = (db) => {
   });
   return router;
 };
+
+router.post("/completed/:id", (req, res) => {
+
+return router;
+});
