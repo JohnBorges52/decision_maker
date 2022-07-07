@@ -1,2 +1,2 @@
-// Client facing scripts here
+const dbParams = require("../../lib/db")
 

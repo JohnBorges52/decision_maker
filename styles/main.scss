@@ -1,77 +1,7 @@
-body {
-  min-height: 100vh;
-  background: white;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.nav-class {
-  display: flex;
-  height: 60px;
-  background-color: rgb(192, 37, 37);
-
-  ul {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-
-    li {
-      list-style: none;
-       padding: 5px;
-
-      a{
-        font-size: 1.1em;
-
-        text-decoration: none;
-        color: rgb(255, 255, 255);
-        text-transform: uppercase;
-      }
-      a:hover {
-        font-weight: 800;
-        text-decoration: underline;
-
-      }
-    }
-  }
-}
-header {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100vw;
-  min-height: 100vh;
-  background-image: url('../images/header-img.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  align-items: center;
-  margin: auto;
-
-
-  .header-text{
-    width: 50%;
-    flex-direction: column;
-    justify-content: right;
-    padding-right: 90px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 4vw;
-    margin: 0;
-    color:white;
-    text-shadow: 1px 1px  rgb(201, 201, 201);
-    text-align:left;
-    text-align: center;
-
-  }
-  .red-span{
-    color: rgb(192, 37, 37);
-    text-shadow: none;
-  }
-}
-
 .main-class-container {
   width: 90%;
   padding-top: 10px;
   margin: 0 auto;
-
-  /* CHANGE BEFORE SUBMITTING, JUST TO MAKE SOME HEIGHT SPACE*/
   height: 100vh;
 
   .poll-results-container {
@@ -88,25 +18,19 @@ header {
       justify-content: center;
       align-items: center;
 
-
       h1 {
         width: 50%;
         color:rgb(109, 109, 109);
         text-align: center;
         margin-bottom: 40px;
         margin-top: 0;
-
       }
     }
-
       form {
         align-items: center;
         justify-content: center;
         display: flex;
         flex-direction: row;
-
-
-
 
         input{
           border: none;
@@ -115,8 +39,11 @@ header {
           margin-left: 20px;
           text-align: center;
         }
+        input::placeholder {
+          color: rgb(182, 182, 182);
+        }
 
-        button{
+        button {
           margin-left: 10px;
           border: none;
           border-radius: 10px;
@@ -124,7 +51,7 @@ header {
           cursor: pointer;
           height: 35px;
           color: white;
-      }
+        }
         button:hover{
           font-weight: 600;
         }
@@ -137,49 +64,3 @@ header {
   }
 }
 
-.footer-class {
-  nav{
-    display: flex;
-    width: 100%;
-    height: 80px;
-    background-color: rgb(192, 37, 37);
-    flex-direction: row;
-    justify-content: space-between;
-    ul{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      justify-content: space-around;
-      margin: 0;
-
-      li{
-        list-style: none;
-        padding: 10px;
-        a{
-          text-decoration: none;
-          color: white;
-        }
-        a:hover{
-          font-weight: 800;
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-  .footer-socials {
-    padding-right: 30px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-i {
-  padding-left: 20px;
-  text-decoration: none;
-  color:white;
-  font-size: 35px;
-
-}
-
-  }
-}

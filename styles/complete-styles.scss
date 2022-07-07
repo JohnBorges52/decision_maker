@@ -1,0 +1,70 @@
+.main-class-container {
+  width: 50%;
+  min-height: 86vh;
+  padding-top: 10px;
+  margin: 0 auto;
+
+
+
+  .submitted-pool-msg {
+    margin-top: 80px;
+    width: 100%;
+    border: 1px solid black;
+    padding: 15px;
+    padding-left: 30px ;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+      color: rgb(231, 90, 90);
+
+    }
+    li {
+      list-style: none;
+      width: 40%;
+      margin: 10px 0;
+    }
+    .justify-li {
+      text-align: justify;
+    }
+
+
+    a {
+      text-decoration: none;
+      color: rgb(121, 121, 121);
+
+    }
+    a:hover{
+      color: rgb(216, 78, 78);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .create-another-poll {
+      margin-top: 20px;
+      text-decoration: none;
+      font-size: 1.5em;
+      color: rgb(255, 255, 255);
+      border: 1px solid rgb(255, 255, 255);
+      border-radius: 10px;
+      padding: 7px;
+      background-color: rgb(247, 108, 108);
+    }
+    .create-another-poll:hover {
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      font-weight: 600;
+      background-color: rgb(243, 76, 76);
+    }
+    .code-here {
+      color: rgb(247, 94, 94);
+    }
+  }
+
+
+
+
+}
+
+

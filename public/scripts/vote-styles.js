@@ -1,4 +1,14 @@
 $(document).ready(function () {
+$(".pollSubmission").submit(function(e) {
+  const optionOrders = [];
+  $(this).find(".options-test").each(function(i,optionElement) {
+    console.log($(optionElement).data("option"));
+    optionOrders.push($(optionElement).data("option"));
+  })
+  const pageUrl = $(location).attr("href").split("/");
+  const key = pageUrl[5];
+  $.ajax('/api/vote/:key', {method: 'POST', data: {optionOrders, key}}})
+
   ///// FUNCTIONALITY OF DRAG AND DROP //////
 
   const $draggables = document.querySelectorAll(".draggable");
@@ -53,10 +63,11 @@ $(document).ready(function () {
     let movies = [];
     movies.push(this);
     const outer = movies[0].outerHTML;
-
+    //let orderOfMovies = []
     let indexxO = $(this).index();
 
     for (let item in allMovies) {
+     // orderOfMovies.push(item)
       if (allMovies[item].outerHTML === outer) indexxO = item;
     }
 
@@ -66,6 +77,7 @@ $(document).ready(function () {
       allDescriptions[indexxO].classList.add("show-description");
     }
   });
+
 
   //// FUNCTIONALITY OF DRAGGIN CLOSING DESCRIPTION ////
 

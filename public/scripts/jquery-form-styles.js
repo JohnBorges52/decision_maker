@@ -24,9 +24,4 @@ $(document).ready(function () {
     return $options
   }
 
-
-
-
-
-
 })
