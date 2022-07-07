@@ -1,4 +1,19 @@
 $(document).ready(function () {
+
+  //Send vote options position and name/poll_key to backend
+
+$(".pollSubmission").submit(function(e) {
+  e.preventDefault();
+  const optionOrders = [];
+  $(this).find(".options-test").each(function(i,optionElement) {
+    console.log($(optionElement).data("option"));
+    optionOrders.push($(optionElement).data("option"));
+  })
+  const pageUrl = $(location).attr("href").split("/");
+  const key = pageUrl[5];
+  $.ajax('/api/vote/:key', {method: 'POST', data: {optionOrders, key}})
+})
+
   ///// FUNCTIONALITY OF DRAG AND DROP //////
 
   const $draggables = document.querySelectorAll(".draggable");

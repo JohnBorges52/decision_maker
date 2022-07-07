@@ -1,10 +1,3 @@
-/*
- * All routes for Widgets are defined here
- * Since this file is loaded in server.js into api/widgets,
- *   these routes are mounted onto /widgets
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router  = express.Router();
 
@@ -42,7 +35,7 @@ module.exports = (db) => {
           VALUES($1,$2,$3,$4)
           RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,options,descriptions])
           .then(()=>{
-            res.render(`thanks`);
+            res.render(`complete`);
 
           });
 
@@ -52,27 +45,17 @@ module.exports = (db) => {
             .query(`INSERT INTO options(user_id,title_id,choice,description)
             VALUES($1,$2,$3,$4)
             RETURNING *;`, [result.rows[0].user_id,result.rows[0].id,option,descriptions[index]])
-
           });
         }
-
-
-
-
-
-        res.render(`thanks`);
+        res.render('complete', poll_key);
       })
-
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
     })
-
-
   });
-
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM options`)
       .then(data => {
@@ -80,7 +63,6 @@ module.exports = (db) => {
         res.json({i});
       })
   });
-
   return router;
 };
 

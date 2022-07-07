@@ -54,45 +54,31 @@
     </nav>
 
     <main class="main-class-container">
-      <form class="pollSubmission">
-        <div class="options-container-test">
-          <div class="options-title"><%= title %></div>
+    <h1>Poll topic: <%= pollTitle %></h>
+      <h5>created by: <%= pollCreator %></h5>
+      <p><%= numberOfVoters %> People have voted so far!</p>
+    <div>
+    <% for (let item of pollOptionScores) { %>
+      <h2><%= item.option %></h2>
+      <h3><%= item.totalScore %></h3>
+    <% } %>
+    </div>
 
-          <div class="options-container-test-drag" name="op" id="insert-description" >
-            <% for (let i = 0; i < questions.length; i++) { %>
+  </main>
 
-              <div data-option="<%= questions[i] %>" class="options-test draggable" draggable="true">
-              <%= questions[i] %>
-            </div>
-            <% } %>
-          </div>
-
-          <div>
-            <button class="sub-btn-rank" type="submit">Submit</button>
-          </div>
-        </div>
-      </form>
-
-      <% for (let i = 0; i < questions.length; i++) { %>
-        <div class="description-fade show-description">
-          <%= description[i] %>
-        </div>
-
-        <% } %>
-    </main>
-
-    <footer class="footer-class">
-      <nav>
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Instagram</a></li>
-        </ul>
-        <div class="footer-socials">
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        </div>
-      </nav>
-    </footer>
+  <footer class="footer-class">
+    <nav>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+      <div class="footer-socials">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      </div>
+    </nav>
+  </footer>
   </body>
-</html>
+  </html>
+
