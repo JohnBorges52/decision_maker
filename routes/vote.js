@@ -42,12 +42,12 @@ module.exports = (db) => {
     choices.forEach((item) => {
       db.query(
         `SELECT options.id, options.title_id, users.email,
-      titles.title
-      FROM users
-      JOIN titles ON users.id = titles.user_id
-      JOIN options ON titles.id = title_id
-      WHERE options.choice = $1 AND poll_key = $2;`,
-        [item, poll_key.poll_key]
+        titles.title
+        FROM users
+        JOIN titles ON users.id = titles.user_id
+        JOIN options ON titles.id = title_id
+        WHERE options.choice = $1 AND poll_key = $2;`,
+          [item, poll_key.poll_key]
       ).then((data) => {
         const optionId = data.rows[0].id;
         const titleID = data.rows[0].title_id;
@@ -64,8 +64,8 @@ module.exports = (db) => {
           [optionId, titleID, score]
         ).catch((err) => {
           res.status(500).json({ error: err.message });
-        })
-        console.log("before-length>1")
+        });
+
         if (length > 1) {
           length = length - 1;
         } else {
@@ -75,8 +75,8 @@ module.exports = (db) => {
             secure: true, //ssl
             auth: {
               user: process.env.EMAIL,
-              pass: process.env.PASSWORD
-            }
+              pass: process.env.PASSWORD,
+            },
           });
 
           var mailOptions = {
@@ -99,10 +99,8 @@ module.exports = (db) => {
             }
           });
         }
-        console.log("after-length>1")
-      })
+      });
     });
-    console.log("end");
     res.render('complete', poll_key.poll_key)
   });
   return router;

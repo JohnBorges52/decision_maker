@@ -54,7 +54,8 @@
     </nav>
 
     <main class="main-class-container">
-      <form class="pollSubmission">
+
+      <form class="pollSubmission" action="/api/vote/<%= poll_key %>" method="post">
         <div class="options-container-test">
           <div class="options-title"><%= title %></div>
 
@@ -75,7 +76,7 @@
 
       <% for (let i = 0; i < questions.length; i++) { %>
         <div class="description-fade show-description">
-          <%= description[i] %>
+         <%= questions[i]%>: <%= description[i] %>
         </div>
 
         <% } %>

@@ -48,8 +48,6 @@ app.use("/api/vote", voteRoutes(db));
 app.use("/", renderingRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
-// Note: mount other resources here, using the same pattern above
-
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

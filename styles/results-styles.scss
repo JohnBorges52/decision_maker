@@ -1,0 +1,75 @@
+:root{
+
+}
+
+
+
+.results-container {
+  width: 100%;
+  border: 1px solid black;
+  padding: 10px;
+
+
+  .bar-chart-div {
+    background-color: pink;
+    height: auto;
+
+  }
+  .option-div {
+    height: 70px;
+    padding-top: 15px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .option-with-percentage {
+      width: 70%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+
+    .option-span {
+      color: rgb(0, 0, 0);
+      font-weight: 600;
+    }
+    .bar-span{
+      background-color: blue;
+      width: 70%;
+      border-radius: 10px ;
+      color: transparent;
+    }
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
