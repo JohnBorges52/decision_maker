@@ -39,46 +39,6 @@ module.exports = (db) => {
     let poll_key = { poll_key: req.body.key };
     const choices = req.body.optionOrders;
     let length = choices.length;
-
-    ////////
-    const promiseArr = [];
-    choices.forEach((item) => {
-      const voteSUbmission = (item) => {
-        db.query(
-          `SELECT options.id, options.title_id, users.email,
-        titles.title
-        FROM users
-        JOIN titles ON users.id = titles.user_id
-        JOIN options ON titles.id = title_id
-        WHERE options.choice = $1 AND poll_key = $2;`,
-          [item, poll_key.poll_key]
-        ).then((data) => {
-          const optionId = data.rows[0].id;
-          const titleID = data.rows[0].title_id;
-          const score = choices.indexOf(item);
-          console.log(optionId);
-          console.log(titleID);
-          console.log(score);
-          const email = data.rows[0].email;
-          const title = data.rows[0].title;
-          console.log(email);
-          db.query(
-            `INSERT INTO choices
-          (option_id, title_id, score) VALUES ($1, $2, $3);`,
-            [optionId, titleID, score])})
-      }
-      promiseArr.push(voteSUbmission(item));
-    })
-    //loop through choices array
-    //for each item of choices create a promise function
-    //store promise function into the promise array
-    //use promise.all to wait for them to finish
-    //render the page
-
-
-
-
-
     choices.forEach((item) => {
       db.query(
         `SELECT options.id, options.title_id, users.email,
@@ -143,7 +103,7 @@ module.exports = (db) => {
       })
     });
     console.log("end");
-    // res.render('complete', poll_key.poll_key)
+    res.render('complete', poll_key.poll_key)
   });
   return router;
 };

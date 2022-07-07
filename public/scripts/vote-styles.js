@@ -3,7 +3,7 @@ $(document).ready(function () {
   //Send vote options position and name/poll_key to backend
 
 $(".pollSubmission").submit(function(e) {
-  e.preventDefault();
+  // e.preventDefault();
   const optionOrders = [];
   $(this).find(".options-test").each(function(i,optionElement) {
     console.log($(optionElement).data("option"));
