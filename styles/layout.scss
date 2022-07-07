@@ -1,6 +1,10 @@
-// See: https://sass-lang.com/
-
 body,
 html {
   margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: white;
+  font-family: 'Montserrat', sans-serif;
 }

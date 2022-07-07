@@ -38,7 +38,6 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const pollsRoutes = require("./routes/polls");
 const voteRoutes = require("./routes/vote");
-const resultRoutes = require("./routes/result")
 const renderingRoutes = require("./routes/rendering")
 
 // Mount all resource routes
@@ -46,8 +45,9 @@ const renderingRoutes = require("./routes/rendering")
 app.use("/api/users", usersRoutes(db));
 app.use("/api/polls", pollsRoutes(db));
 app.use("/api/vote", voteRoutes(db));
-app.use("/api/result", resultRoutes(db));
 app.use("/", renderingRoutes(db));
+// Note: mount other resources here, using the same pattern above
+
 // Note: mount other resources here, using the same pattern above
 
 app.listen(PORT, () => {
