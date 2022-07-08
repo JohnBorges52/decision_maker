@@ -1,5 +1,4 @@
 $(document).ready(function () {
-console.log("hello");
 $(".pollSubmission").submit(function(e) {
   const optionOrders = [];
   $(this).find(".options-test").each(function(i,optionElement) {

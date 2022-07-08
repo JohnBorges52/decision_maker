@@ -44,32 +44,28 @@
   </nav>
   <main class="main-class-container">
 
-    <h1> Which poll you want to see the results?   </h1>
+    <!-- <h1> Which poll you want to see the results?   </h1>
     <input type="text" placeholder="code here">
-    <button> See it here! </button>
+    <button> See it here! </button> -->
 
 
     <div class="results-container" id="tall">
-      <h1> Results for: <%= title %> Poll</h1>
-
-
-
-
-
-
-
+      <h1> Results for: <%= title %> </h1>
 
 
 
       <div class="bar-chart-div">
-
+        <% for (let i = 0; i < options.length; i++) { %>
         <div class="option-div">
           <div class="option-with-percentage">
-            <span class="option-span"><%= options %>  </span>
-            <span class="percentage">50%</span>
+            <span class="option-span">options <%=i+1%>: <%= options[i]%></span>
+            <span class="percentage" ><%= percent[i]%>%</span>
           </div>
-          <span class="bar-span"> ................</span>
+          <span class="bar-span" style="width:<%= percent[i]%>%" > ................</span>
         </div>
+          <% } %>
+
+
 
 
 
