@@ -77,7 +77,7 @@ module.exports = (db) => {
             text: `
             Hello!
             your friend has just voted on your poll: ${title}. Click below to see the updated results.
-            Admin Link: http://localhost:8080/api/result/${poll_key.poll_key}
+            Admin Link: http://localhost:8080/api/results/${poll_key.poll_key}
             Share the link below to get more responses.
             Voting Link: http://localhost:8080/api/vote/${poll_key.poll_key}
             Thank you!`,

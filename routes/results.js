@@ -81,6 +81,10 @@ module.exports = (db) => {
         }
       });
       console.log(uniqueOp);
+      let a = Number(uniqueOp.length);
+      let b = Number(option.length);
+      let number = b/a;
+      console.log(number);
       let rel = [];
       let percent=[];
       for (const z in uniqueOp) {
@@ -107,7 +111,8 @@ module.exports = (db) => {
       const info = {
         title: title,
         options: uniqueOp,
-        percent:percent
+        percent:percent,
+        number:number
 
       };
       //console.log(info);
