@@ -47,7 +47,7 @@ module.exports = (db) => {
       length = length - 1;
     });
   });
-  router.get("/:key", (req, res) => {
+    router.get("/:key", (req, res) => {
 
     let poll_key = { poll_key: req.params.key };
 

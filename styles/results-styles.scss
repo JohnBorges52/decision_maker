@@ -1,18 +1,27 @@
-:root{
-
-}
-
-
-
 .results-container {
-  width: 100%;
-  border: 1px solid black;
+  width: 70%;
+  margin: auto;
+  margin-top: 130px;
+  border: 1px solid rgb(253, 204, 204);
+  border-radius: 15px;
   padding: 10px;
+    h1 {
+      width: 85%;
+      text-align: center;
+      color: rgb(190, 19, 19);
+      margin: 30px auto 30px;
+      text-transform: uppercase;
+    }
 
 
   .bar-chart-div {
-    background-color: pink;
+    background-color: rgb(250, 179, 179);
+    border: 1px solid rgb(241, 151, 151);
+    width: 70%;
     height: auto;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 30px;
 
   }
   .option-div {
@@ -24,20 +33,27 @@
     justify-content: space-around;
 
     .option-with-percentage {
-      width: 70%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
     }
 
+    .percentage {
+      color: white;
+      font-weight: 500;
+      text-align: center;
+    }
 
     .option-span {
-      color: rgb(0, 0, 0);
+      color: rgb(150, 23, 23);
+      text-indent: 7px;
       font-weight: 600;
+      min-width: 400px;
     }
     .bar-span{
-      background-color: blue;
-      width: 70%;
+      background-color: rgb(235, 46, 46);
+      box-shadow: 2px 2px white;
+      text-indent: 7px;
       border-radius: 10px ;
       color: transparent;
     }
