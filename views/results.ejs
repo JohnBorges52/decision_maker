@@ -36,6 +36,7 @@
 </head>
 
 <body>
+
   <nav class="nav-class">
     <ul>
       <li><a href="/api/users">Home</a></li>
@@ -52,52 +53,36 @@
 
 
     <div class="results-container" id="tall">
-      <h1> Results for: <%= title %></h1>
-      <h2><span class="badge badge-secondary badge-warning"><%= number %> Votes</span></h2>
+      <h1> <%= title %> </h1>
+      <h2 class="number-votes"> <%= number %> Votes</h2>
 
       <div class="bar-chart-div">
         <% for (let i = 0; i < options.length; i++) { %>
         <div class="option-div">
           <div class="option-with-percentage">
-            <span class="option-span">option <%=i+1%>: <%= options[i]%></span>
-            <span class="percentage" ><%= percent[i]%>%</span>
+            <span class="option-span">Option <%=i+1%>: <%= options[i]%></span>
+
           </div>
-          <span class="bar-span" style="width:<%= percent[i]%>%" > ................</span>
+          <span class="bar-span" style="width:<%= percent[i]%>%" >  <span class="percentage" ><%= percent[i]%>%</span></span>
         </div>
           <% } %>
 
 
-
-
-
-
-
-
-
-
-
-
-
       </div>
- </div>
-  </main>
+    </main>
 
     <footer class="footer-class">
-
-        <nav>
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Instagram</a></li>
-          </ul>
-          <div class="footer-socials">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook" ></i></a>
-          </div>
-        </nav>
-
+      <nav>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </nav>
     </footer>
-
-</body>
-
+  </body>
 </html>
