@@ -12,7 +12,7 @@ module.exports = (db) => {
   });
 
   router.post("/:key", (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     let title = req.body.title;
     let poll_key = {poll_key:req.params.key};
     let options = req.body.op;
@@ -27,8 +27,8 @@ module.exports = (db) => {
                VALUES($1,$2)
                RETURNING *;`, [title,poll_key.user_id])
       .then((result) => {
-        console.log(result.rows);
-        console.log(options);
+        //console.log(result.rows);
+        //console.log(options);
         if (!Array.isArray(options)) {
           return db
           .query(`INSERT INTO options(user_id,title_id,choice,description)

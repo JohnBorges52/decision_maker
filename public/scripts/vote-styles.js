@@ -1,13 +1,5 @@
 $(document).ready(function () {
-$(".pollSubmission").submit(function(e) {
-  const optionOrders = [];
-  $(this).find(".options-test").each(function(i,optionElement) {
-    console.log($(optionElement).data("option"));
-    optionOrders.push($(optionElement).data("option"));
-  })
-  const pageUrl = $(location).attr("href").split("/");
-  const key = pageUrl[5];
-  $.ajax('/api/vote/:key', {method: 'POST', data: {optionOrders, key}}})
+
 
   ///// FUNCTIONALITY OF DRAG AND DROP //////
 
@@ -53,7 +45,7 @@ $(".pollSubmission").submit(function(e) {
       },
       { offset: Number.NEGATIVE_INFINITY }
     ).element;
-  }
+  };
 
   const allMovies = document.querySelectorAll("div.options-test");
   const allDescriptions = document.querySelectorAll(".description-fade");
