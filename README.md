@@ -11,9 +11,10 @@ _**obs**: the email notification is currently disabled*_
 ## HOW TO USE IT
 
 1. Npm install the dependencies.
-2. Set up a database. Here is a [article](https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm) to help if needed.
-3. Npm start to start the server.
-4. Write your name and your e-mail to create a new Poll.
+2. Set up a database. <br/>
+  *Here is a [article](https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm) to help if needed.*
+4. Npm start to start the server.
+5. Write your name and your e-mail to create a new Poll.
   <img src="https://user-images.githubusercontent.com/105023503/186273523-f4162f63-1a9d-44eb-aee0-e9452dbb897a.png" style="width:300px" >
 
 5. Type the title of the poll, add hte number of options needed and the description for each option.
