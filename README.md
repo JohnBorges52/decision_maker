@@ -14,9 +14,9 @@ _**obs**: the email notification is currently disabled\*_
    _Here is a [article](https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm) to help if needed._
 3. Npm start to start the server.
 
-- 4.1 Visit http://localhost:8080/api/users/ in order to go to the main page.
+- 4.1 Visit http://localhost:8080/api/users/ in order to go to the main page.<br/>
 
-5. Write your name and your e-mail to create a new Poll.
+5. Write your name and your e-mail to create a new Poll. <br/>
    <img src="https://user-images.githubusercontent.com/105023503/186273523-f4162f63-1a9d-44eb-aee0-e9452dbb897a.png" style="width:300px" >
 
 6. Type the title of the poll, add hte number of options needed and the description for each option.
@@ -25,7 +25,7 @@ _**obs**: the email notification is currently disabled\*_
 7. After creating the Poll you have the option to see the results and share the link of the Poll with your friends so they can vote.
    <img src="https://user-images.githubusercontent.com/105023503/186274153-cec4e8b6-f142-4f9f-bdd0-9bfe7e42bc3c.png" style="width:300px" >
 
-8. In order to vote, you can drag and drop the options. The first one receive the highest points and the last one the least points. You can double click the option in order to see the details bellow the options.
+8. In order to vote, you can drag and drop the options. The first one receive the highest points and the last one the least points. You can double click the option in order to see the details bellow the options.<br/>
    <img src="https://user-images.githubusercontent.com/105023503/186274701-98735142-11b7-4626-aa0f-f83313fc477b.png" style="width:300px" >
 
 ## Features
